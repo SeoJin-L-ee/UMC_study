@@ -30,7 +30,7 @@ public class Restaurant extends BaseEntity {
     @Column(nullable = false, length = 40)
     private String address;
 
-    private float avgRating;
+    private float score;
 
     @Column(nullable = false)
     private LocalDateTime openTime;
@@ -43,5 +43,15 @@ public class Restaurant extends BaseEntity {
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Mission> missionList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", score=" + score +
+                '}';
+    }
 
 }

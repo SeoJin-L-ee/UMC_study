@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.domain.Restaurant;
-import umc.study.repository.RestaurantRepository.RestaurantRepository;
+import umc.study.repository.QRestaurantRepository.RestaurantRepository;
 
 import java.util.List;
 import java.util.Optional;

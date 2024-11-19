@@ -24,4 +24,10 @@ public class UserTaste extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(10)")
     private FoodType foodType;
 
+    public void setUser(User user){
+        if(this.user != null)
+            user.getUserTasteList().remove(this);
+        this.user = user;
+        user.getUserTasteList().add(this);
+    }
 }

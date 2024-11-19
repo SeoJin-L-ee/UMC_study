@@ -1,6 +1,5 @@
-package umc.study.repository.ReviewRepository;
+package umc.study.repository.QReviewRepository;
 
-import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

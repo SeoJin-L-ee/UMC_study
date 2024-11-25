@@ -28,4 +28,12 @@ public class UserMission extends BaseEntity {
     @Column(nullable = false)
     private boolean isDone;
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setMission(Mission mission) {
+        this.mission = mission;
+    }
+
 }

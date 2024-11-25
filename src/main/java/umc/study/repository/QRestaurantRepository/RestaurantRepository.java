@@ -1,4 +1,4 @@
-package umc.study.repository.RestaurantRepository;
+package umc.study.repository.QRestaurantRepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import umc.study.domain.Restaurant;

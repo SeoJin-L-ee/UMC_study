@@ -1,4 +1,4 @@
-package umc.study.repository.ReviewRepository;
+package umc.study.repository.QReviewRepository;
 
 import umc.study.domain.Image;
 

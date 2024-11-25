@@ -1,8 +1,6 @@
-package umc.study.repository.MissionRepository;
+package umc.study.repository.QMissionRepository;
 
 import com.querydsl.core.Tuple;
-import umc.study.domain.Mission;
-import umc.study.domain.Restaurant;
 
 import java.util.List;
 

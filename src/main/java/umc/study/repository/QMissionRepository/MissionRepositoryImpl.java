@@ -1,4 +1,4 @@
-package umc.study.repository.MissionRepository;
+package umc.study.repository.QMissionRepository;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;

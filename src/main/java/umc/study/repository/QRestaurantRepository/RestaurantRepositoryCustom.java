@@ -1,4 +1,4 @@
-package umc.study.repository.RestaurantRepository;
+package umc.study.repository.QRestaurantRepository;
 
 import umc.study.domain.Restaurant;
 

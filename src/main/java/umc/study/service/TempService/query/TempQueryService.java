@@ -1,4 +1,4 @@
-package umc.study.service.TempService;
+package umc.study.service.TempService.query;
 
 public interface TempQueryService {
 

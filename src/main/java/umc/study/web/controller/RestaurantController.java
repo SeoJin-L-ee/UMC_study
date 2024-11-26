@@ -65,6 +65,15 @@ public class RestaurantController {
 
     @GetMapping("/{restaurantId}/missions")
     @Operation(summary = "특정 가게의 미션 목록 조회 API")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "RESTAURANT404", description = "식당이 존재하지 않습니다.", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "PAGE400", description = "유효하지 않은 page 값입니다.", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+    })
+    @Parameters({
+            @Parameter(name = "restaurantId", description = "가게의 아이디입니다."),
+            @Parameter(name = "page", description = "조회된 목록 페이징에 사용되는 페이지 번호입니다.")
+    })
     public ApiResponse<MissionResDTO.MissionPreviewListDTO> getMissions(
             @ExistRestaurant @PathVariable(name = "restaurantId") Long restaurantId,
             @CheckPage @RequestParam(name = "page") Integer page) {

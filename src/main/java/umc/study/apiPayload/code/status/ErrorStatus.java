@@ -33,7 +33,7 @@ public enum ErrorStatus implements BaseErrorCode {
     FOOD_TYPE_NOT_FOUND(HttpStatus.NOT_FOUND, "FOODTYPE404", "해당하는 음식 유형이 존재하지 않습니다."),
 
     // Restaurant
-    RESTAURANT_NOT_FOUND(HttpStatus.NOT_FOUND, "RESTAURANT404", "식당이 존재하지 않습니다."),
+        RESTAURANT_NOT_FOUND(HttpStatus.NOT_FOUND, "RESTAURANT404", "식당이 존재하지 않습니다."),
 
     // Mission
     MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MISSION404", "미션이 존재하지 않습니다."),

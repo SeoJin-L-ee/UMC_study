@@ -15,12 +15,12 @@ import umc.study.domain.*;
 import umc.study.domain.enums.FoodType;
 import umc.study.domain.mapping.UserMission;
 import umc.study.repository.MissionRepository;
-import umc.study.repository.QRestaurantRepository.RestaurantRepository;
+import umc.study.repository.RestaurantRepository2;
 import umc.study.repository.ReviewRepository;
 import umc.study.repository.UserRepository;
 import umc.study.web.dto.ChallengeValidationDTO;
-import umc.study.web.dto.reviewDTO.ReviewRequestDTO;
-import umc.study.web.dto.userDTO.UserRequestDTO;
+import umc.study.web.dto.reviewDTO.ReviewReqDTO;
+import umc.study.web.dto.userDTO.UserReqDTO;
 
 import java.util.List;
 
@@ -30,12 +30,12 @@ import java.util.List;
 public class UserCommandServiceImpl implements UserCommandService {
 
     private final UserRepository userRepository;
-    private final RestaurantRepository restaurantRepository;
+    private final RestaurantRepository2 restaurantRepository;
     private final ReviewRepository reviewRepository;
     private final MissionRepository missionRepository;
 
     @Override
-    public User joinUser(UserRequestDTO.CreateUserReqDTO createUserReqDTO) {
+    public User joinUser(UserReqDTO.CreateUserReqDTO createUserReqDTO) {
 
         User user = UserConverter.toUser(createUserReqDTO);
 
@@ -56,7 +56,7 @@ public class UserCommandServiceImpl implements UserCommandService {
     }
 
     @Override
-    public Review createReview(Long userId, Long restaurantId, ReviewRequestDTO.CreateReviewReqDTO createReviewReqDTO) {
+    public Review createReview(Long userId, Long restaurantId, ReviewReqDTO.CreateReviewReqDTO createReviewReqDTO) {
 
         User user = userRepository.findById(userId).orElseThrow(() -> new UserHandler(ErrorStatus.USER_NOT_FOUND));
         Restaurant restaurant = restaurantRepository.findById(restaurantId).orElseThrow(() -> new RestaurantHandler(ErrorStatus.RESTAURANT_NOT_FOUND));

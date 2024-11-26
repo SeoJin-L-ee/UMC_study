@@ -7,7 +7,7 @@ import umc.study.domain.Image;
 
 import java.util.List;
 
-public class ReviewRequestDTO {
+public class ReviewReqDTO {
 
     @Getter
     public static class CreateReviewReqDTO {

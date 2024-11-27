@@ -5,6 +5,7 @@ import lombok.*;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
+import umc.study.domain.enums.Role;
 import umc.study.domain.mapping.UserMission;
 
 import java.time.LocalDate;
@@ -32,8 +33,14 @@ public class User extends BaseEntity {
     @Column(nullable = false, length = 40)
     private String address;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, unique = true, length = 50)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private Integer point;
@@ -62,4 +69,7 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<UserMission> userMissionList = new ArrayList<>();
 
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 }

@@ -16,6 +16,8 @@ public class UserConverter {
                 .gender(createUserReqDTO.getGender())
                 .address(createUserReqDTO.getAddress())
                 .email(createUserReqDTO.getEmail())
+                .password(createUserReqDTO.getPassword())
+                .role(createUserReqDTO.getRole())
                 .point(0)
                 .memberStatus(MemberStatus.ACTIVE)
                 .userTasteList(new ArrayList<>())

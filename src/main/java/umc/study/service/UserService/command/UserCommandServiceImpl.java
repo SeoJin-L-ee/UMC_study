@@ -1,6 +1,8 @@
 package umc.study.service.UserService.command;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayload.code.status.ErrorStatus;
@@ -27,23 +29,28 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class UserCommandServiceImpl implements UserCommandService {
 
     private final UserRepository userRepository;
     private final RestaurantRepository2 restaurantRepository;
     private final ReviewRepository reviewRepository;
     private final MissionRepository missionRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User joinUser(UserReqDTO.CreateUserReqDTO createUserReqDTO) {
 
         User user = UserConverter.toUser(createUserReqDTO);
+        user.encodePassword(passwordEncoder.encode(createUserReqDTO.getPassword()));
+        log.info("여까진 정상작동합니다!");
 
         List<FoodType> foodTypeList = createUserReqDTO.getPreferCategory().stream()
                 .map(category -> {
                     try {
-                        return FoodType.valueOf(category);
+                        return FoodType.fromDescription(category);
                     } catch (IllegalArgumentException e) {
+                        log.info("그런 음식 유형 없습니다.");
                         throw new FoodTypeHandler(ErrorStatus.FOOD_TYPE_NOT_FOUND);
                     }
                 })

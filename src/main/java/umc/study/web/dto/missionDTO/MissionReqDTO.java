@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-public class MissionRequestDTO {
+public class MissionReqDTO {
 
     @Getter
     public static class CreateMissionDTO {

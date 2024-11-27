@@ -12,10 +12,10 @@ import umc.study.domain.Mission;
 import umc.study.domain.Restaurant;
 import umc.study.domain.User;
 import umc.study.repository.MissionRepository;
-import umc.study.repository.QRestaurantRepository.RestaurantRepository;
+import umc.study.repository.RestaurantRepository2;
 import umc.study.repository.UserMissionRepository;
 import umc.study.repository.UserRepository;
-import umc.study.web.dto.missionDTO.MissionRequestDTO;
+import umc.study.web.dto.missionDTO.MissionReqDTO;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +25,7 @@ public class MissionCommandServiceImpl implements MissionCommandService {
     private final UserRepository userRepository;
     private final MissionRepository missionRepository;
     private final UserMissionRepository userMissionRepository;
-    private final RestaurantRepository restaurantRepository;
+    private final RestaurantRepository2 restaurantRepository;
 
     @Override
     public boolean isAlreadyChallenged(Long userId, Long missionId) {
@@ -37,7 +37,7 @@ public class MissionCommandServiceImpl implements MissionCommandService {
     }
 
     @Override
-    public void createMission(Long restaurantId, MissionRequestDTO.CreateMissionDTO createMissionDTO) {
+    public void createMission(Long restaurantId, MissionReqDTO.CreateMissionDTO createMissionDTO) {
 
         Restaurant restaurant = restaurantRepository.findById(restaurantId).orElseThrow(() -> new RestaurantHandler(ErrorStatus.RESTAURANT_NOT_FOUND));
         Mission mission = MissionConverter.toMission(createMissionDTO);

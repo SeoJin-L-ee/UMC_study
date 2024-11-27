@@ -2,14 +2,14 @@ package umc.study.converter;
 
 import umc.study.domain.User;
 import umc.study.domain.enums.MemberStatus;
-import umc.study.web.dto.userDTO.UserRequestDTO;
-import umc.study.web.dto.userDTO.UserResponseDTO;
+import umc.study.web.dto.userDTO.UserReqDTO;
+import umc.study.web.dto.userDTO.UserResDTO;
 
 import java.util.ArrayList;
 
 public class UserConverter {
 
-    public static User toUser(UserRequestDTO.CreateUserReqDTO createUserReqDTO) {
+    public static User toUser(UserReqDTO.CreateUserReqDTO createUserReqDTO) {
 
         return User.builder()
                 .name(createUserReqDTO.getName())
@@ -22,9 +22,9 @@ public class UserConverter {
                 .build();
     }
 
-    public static UserResponseDTO.CreateUserResDTO toCreateUserResDTO(User user) {
+    public static UserResDTO.CreateUserResDTO toCreateUserResDTO(User user) {
 
-        return UserResponseDTO.CreateUserResDTO.builder()
+        return UserResDTO.CreateUserResDTO.builder()
                 .id(user.getId())
                 .name(user.getName())
                 .createdAt(user.getCreatedAt())

@@ -9,7 +9,7 @@ import umc.study.validation.annotation.ExistCategories;
 
 import java.util.List;
 
-public class UserRequestDTO {
+public class UserReqDTO {
 
     @Getter
     public static class CreateUserReqDTO {
